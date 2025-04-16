@@ -15,12 +15,12 @@ function getCookie(cname) {
 }
 
 async function follow(target_username){
-    const cookie = await getCookie("scratchcsrftoken");
+    const coookie = await getCookie("scratchcsrftoken");
     
     const sessionResponse = await fetch("https://scratch.mit.edu/session/?blreferer", {
       headers: {
         "X-Requested-With": "XMLHttpRequest",
-        "x-csrftoken": cookie?.value
+        "x-csrftoken": coookie?.value
       }
     });
 
