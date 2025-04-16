@@ -15,6 +15,8 @@ function getCookie(cname) {
 }
 
 async function follow(target_username){
+    const cookie = await getCookie("scratchcsrftoken");
+    
     const sessionResponse = await fetch("https://scratch.mit.edu/session/?blreferer", {
       headers: {
         "X-Requested-With": "XMLHttpRequest",
@@ -27,13 +29,14 @@ async function follow(target_username){
     const cookie = await getCookie("scratchcsrftoken");
 
     $.ajax({
-      type: "PUT",
-      url: "https://scratch.mit.edu/site-api/users/followers/" + target_username + "/add/",
-      data: { usernames: current_username },
-      headers: {
-        "x-csrftoken": cookie?.value,
-      }
-    });
+  type: "PUT", // HTTP method
+  url: "https://scratch.mit.edu/site-api/users/followers/" + target_username + "/add/", // API endpoint
+  data: { usernames: current_username }, // Payload: the user you want to follow from
+  headers: {
+    "X-CSRFToken": cookie?.value, // CSRF token for authentication
+  }
+});
+
 }
 
 async function open_kit() {
