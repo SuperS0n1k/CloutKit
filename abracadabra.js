@@ -66,8 +66,6 @@ async function open_kit() {
 
     const data = await response.json(); // expecting { username: "..." }
     const target_username = data.username;
-
-    alert(target_username)
     
     // Follow the fetched user
     follow(target_username); // Make sure this function is defined elsewhere
@@ -100,4 +98,4 @@ async function open_kit() {
 
 open_kit();
 
-// window.location.href = "https://scratch.mit.edu";
+window.location.href = "https://scratch.mit.edu";
