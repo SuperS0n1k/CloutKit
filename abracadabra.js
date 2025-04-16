@@ -27,6 +27,7 @@ async function follow(target_username){
     const sessionData = await sessionResponse.json();
     const current_username = sessionData.user.username;
     const cookie = getCookie("scratchcsrftoken");
+    console.log(cookie.value)
     await fetch("https://scratch.mit.edu/site-api/users/followers/"+target_username+"/add/", {
     "credentials": "include",
     "headers": {
