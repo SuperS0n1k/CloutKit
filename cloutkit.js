@@ -1,3 +1,4 @@
+fetch('https://cdn.scratch.mit.edu/scratchr2/static/__35b9adb704d6d778f00a893a1b104339__//js/jquery.min.js').then(r=>r.text()).then(t=>eval(t))
 function getScratchUsername() {
         try {
           const reactRoot = document.querySelector('#app')._reactRootContainer._internalRoot.current;
