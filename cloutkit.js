@@ -280,15 +280,3 @@ document.documentElement.innerHTML=`<head>
 
 </body>`
 
-async function follow(username){
-  const cookie = await cookieStore.get("scratchcsrftoken");
-
-  $.ajax({
-    type: "PUT",
-    url: "https://scratch.mit.edu/site-api/users/followers/" + username + "/add/",
-    data: { usernames: username },
-    headers: {
-      "x-csrftoken": cookie?.value,
-    }
-  });
-}
