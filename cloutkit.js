@@ -266,7 +266,7 @@ document.documentElement.innerHTML=`<head>
       </div>
       <div class="main">
         <div class="content">
-          <img src="http://raw.githubusercontent.com/SuperS0n1k/CloutKit/refs/heads/main/cairn.svg">
+          <img src="http://raw.githubusercontent.com/SuperS0n1k/CloutKit/main/cairn.svg">
           <h1>This is where the magic happens.</h1>
           <hr>
           <div class="narrow">
