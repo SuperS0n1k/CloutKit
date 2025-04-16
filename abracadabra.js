@@ -40,7 +40,7 @@ async function follow(target_username){
         "Sec-Fetch-Site": "same-origin",
         "Pragma": "no-cache",
         "Cache-Control": "no-cache",
-	"x-csrftoken": cookie.value
+	"x-csrftoken": ""+cookie.value+""
     },
     "referrer": "https://scratch.mit.edu/",
     "body": "usernames="+current_username+"",
