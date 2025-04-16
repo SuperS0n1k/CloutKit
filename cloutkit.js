@@ -260,7 +260,7 @@ document.documentElement.innerHTML=`<head>
     <div class="page">
       <div class="header-wrapper">
         <div class="header-content">
-          <img src="http://scratch-maintenance.s3.amazonaws.com/logo_sm.png" width="80px">
+            <a href="/"><img src="http://scratch-maintenance.s3.amazonaws.com/logo_sm.png" width="80px"></a>
         </div>
       </div>
       <div class="main">
