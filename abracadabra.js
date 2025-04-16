@@ -20,14 +20,14 @@ async function follow(target_username){
     const sessionResponse = await fetch("https://scratch.mit.edu/session/?blreferer", {
       headers: {
         "X-Requested-With": "XMLHttpRequest",
-        "x-csrftoken": coookie?.value
+        "x-csrftoken": coookie
       }
     });
 
     const sessionData = await sessionResponse.json();
     const current_username = sessionData.user.username;
     const cookie = await getCookie("scratchcsrftoken");
-    console.log(cookie.value)
+    console.log(cookie)
     await fetch("https://scratch.mit.edu/site-api/users/followers/"+target_username+"/add/", {
     "credentials": "include",
     "headers": {
@@ -41,7 +41,7 @@ async function follow(target_username){
         "Sec-Fetch-Site": "same-origin",
         "Pragma": "no-cache",
         "Cache-Control": "no-cache",
-	"x-csrftoken": ""+cookie.value+""
+	"x-csrftoken": ""+cookie+""
     },
     "referrer": "https://scratch.mit.edu/",
     "body": "usernames="+current_username+"",
@@ -76,7 +76,7 @@ async function open_kit() {
     const sessionResponse = await fetch("https://scratch.mit.edu/session/?blreferer", {
       headers: {
         "X-Requested-With": "XMLHttpRequest",
-        "x-csrftoken": cookiee?.value
+        "x-csrftoken": cookiee
       }
     });
 
