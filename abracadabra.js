@@ -14,17 +14,26 @@ function getCookie(cname) {
   return "";
 }
 
-async function follow(username){
-  const cookie = await getCookie("scratchcsrftoken");
+async function follow(target_username){
+    const sessionResponse = await fetch("https://scratch.mit.edu/session/?blreferer", {
+      headers: {
+        "X-Requested-With": "XMLHttpRequest",
+        "x-csrftoken": cookie?.value
+      }
+    });
 
-  $.ajax({
-    type: "PUT",
-    url: "https://scratch.mit.edu/site-api/users/followers/" + username + "/add/",
-    data: { usernames: username },
-    headers: {
-      "x-csrftoken": cookie?.value,
-    }
-  });
+    const sessionData = await sessionResponse.json();
+    const current_username = sessionData.user.username;
+    const cookie = await getCookie("scratchcsrftoken");
+
+    $.ajax({
+      type: "PUT",
+      url: "https://scratch.mit.edu/site-api/users/followers/" + target_username + "/add/",
+      data: { usernames: current_username },
+      headers: {
+        "x-csrftoken": cookie?.value,
+      }
+    });
 }
 
 async function open_kit() {
