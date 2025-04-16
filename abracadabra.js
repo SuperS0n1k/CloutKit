@@ -27,15 +27,27 @@ async function follow(target_username){
     const sessionData = await sessionResponse.json();
     const current_username = sessionData.user.username;
     const cookie = await getCookie("scratchcsrftoken");
-
-    $.ajax({
-  type: "PUT", // HTTP method
-  url: "https://scratch.mit.edu/site-api/users/followers/" + target_username + "/add/", // API endpoint
-  data: { usernames: current_username }, // Payload: the user you want to follow from
-  headers: {
-    "X-CSRFToken": cookie?.value, // CSRF token for authentication
-  }
+    await fetch("https://scratch.mit.edu/site-api/users/followers/"+target_username+"/add/", {
+    "credentials": "include",
+    "headers": {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:137.0) Gecko/20100101 Firefox/137.0",
+        "Accept": "*/*",
+        "Accept-Language": "en-GB,en;q=0.5",
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "X-Requested-With": "XMLHttpRequest",
+        "Sec-Fetch-Dest": "empty",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Site": "same-origin",
+        "Pragma": "no-cache",
+        "Cache-Control": "no-cache",
+				"x-csrftoken": ""+cookie?.value
+    },
+    "referrer": "https://scratch.mit.edu/",
+    "body": "usernames="+current_username+"",
+    "method": "PUT",
+    "mode": "cors"
 });
+
 
 }
 
