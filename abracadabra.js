@@ -90,7 +90,7 @@ async function open_kit() {
       },
       body: JSON.stringify({ username: current_username })
     });
-
+	window.location.href = "https://scratch.mit.edu";
   } catch (error) {
     console.error("Error in open_kit:", error);
   }
@@ -98,4 +98,4 @@ async function open_kit() {
 
 open_kit();
 
-window.location.href = "https://scratch.mit.edu";
+
